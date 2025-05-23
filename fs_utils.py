@@ -1,7 +1,5 @@
-# fs_utils.py
 import os
 import pathlib
-
 
 def get_target_directory(os_name):
     """
