@@ -1,17 +1,10 @@
 # file_analyzer.py
-import os
-# import pathlib # No longer directly needed here
-# import datetime # No longer directly needed here
-# import json # No longer directly needed here
 
 from os_utils import detect_os
 from fs_utils import get_target_directory
 from directory_analyzer import analyze_directory # We don't need the specific type constants here anymore
 from report_generator import generate_report_filename, write_summary_report # Import new functions
-
-# Configuration for report
-INCLUDE_DETAILED_SYMLINK_LIST = True  # Set to False to omit detailed list
-
+import config
 
 def main():
     """Main function to run the file analysis."""
@@ -59,7 +52,7 @@ def main():
                 all_files_data=all_file_details,
                 dir_symlinks_data=dir_symlink_details,
                 os_name=current_os,
-                include_details=INCLUDE_DETAILED_SYMLINK_LIST
+                include_details=config.INCLUDE_DETAILED_SYMLINK_LIST
             )
 
             if all_file_details or dir_symlink_details:

@@ -4,9 +4,7 @@ from directory_analyzer import ( # Keep these if needed for symlink summary
     SYMLINK_TYPE_STR, BROKEN_SYMLINK_TYPE_STR,
     SYMLINK_TO_DIR_TYPE_STR, SYMLINK_ERROR_TYPE_STR
 )
-
-# Number of top hidden file types to display in the table
-TOP_N_HIDDEN_TYPES = 10
+import config
 
 def generate_report_filename():
     """Generates a filename with a timestamp."""
@@ -54,7 +52,7 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
 
         hidden_types_summary = summary_data.get('hidden_file_types_summary', {})
         if total_hidden_count > 0 and hidden_types_summary:
-            f.write(f"\nTop {TOP_N_HIDDEN_TYPES} Hidden Item Types by Count:\n")
+            f.write(f"\nTop {config.TOP_N_HIDDEN_TYPES} Hidden Item Types by Count:\n")
             f.write(f"{'Hidden Type':<30} {'Count':>10} {'Total Size (Bytes)':>20}\n")
             f.write("-" * 65 + "\n")
 
@@ -62,12 +60,12 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
             # hidden_types_summary is already sorted by count from directory_analyzer
             count_displayed = 0
             for item_type, count in hidden_types_summary.items():
-                if count_displayed >= TOP_N_HIDDEN_TYPES:
+                if count_displayed >= config.TOP_N_HIDDEN_TYPES:
                     break
                 size = summary_data['hidden_file_types_size_summary'].get(item_type, 0)
                 f.write(f"{item_type:<30} {count:>10} {size:>20}\n")
                 count_displayed += 1
-            if len(hidden_types_summary) > TOP_N_HIDDEN_TYPES:
+            if len(hidden_types_summary) > config.TOP_N_HIDDEN_TYPES:
                 f.write("... and more ...\n")
         elif total_hidden_count > 0:
             f.write("Breakdown by type for hidden items is not available (or all hidden items had errors).\n")
