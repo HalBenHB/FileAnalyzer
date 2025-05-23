@@ -4,6 +4,7 @@ import pathlib
 import collections
 import sys
 from fs_utils import is_hidden
+import config
 
 # Define constants for special types to avoid magic strings
 SYMLINK_TYPE_STR = ".<symlink>"
@@ -13,10 +14,6 @@ SYMLINK_ERROR_TYPE_STR = ".<symlink_error>"
 NON_FILE_TYPE_STR = ".<non_file_type>"
 ERROR_TYPE_STR = ".<error_processing>"
 NO_EXTENSION_STR = ".<no_ext>"
-
-# Progress update interval
-PROGRESS_UPDATE_INTERVAL_FILES = 500 # Update every 500 files
-PROGRESS_UPDATE_INTERVAL_DIRS = 50 # Update after every 50 directories (roots visited)
 
 
 def get_absolute_target_path(symlink_path_obj, target_path_str_from_readlink):
@@ -86,7 +83,7 @@ def analyze_directory(directory_path, os_name):
 
         # --- Progress Update for Directories ---
 
-        if visited_roots % PROGRESS_UPDATE_INTERVAL_DIRS == 0 or visited_roots == 1 :
+        if visited_roots % config.PROGRESS_UPDATE_INTERVAL_DIRS == 0 or visited_roots == 1 :
             # Truncate long paths for display
             display_path = str(current_path_obj)
             if len(display_path) > 70: display_path = "..." + display_path[-67:]
@@ -231,7 +228,7 @@ def analyze_directory(directory_path, os_name):
                 continue
 
             # Progress update for files (as before)
-            if total_files_processed_in_walk % PROGRESS_UPDATE_INTERVAL_FILES == 0:
+            if total_files_processed_in_walk % config.PROGRESS_UPDATE_INTERVAL_FILES == 0:
                 print(f"\rScanning {spinner_chars[spinner_idx % len(spinner_chars)]} [{visited_roots} dirs, {total_files_processed_in_walk} files processed]...", end="", flush=True)
                 spinner_idx +=1
 
