@@ -1,8 +1,5 @@
 # file_analyzer.py
 import os
-# import pathlib # No longer directly needed here
-# import datetime # No longer directly needed here
-# import json # No longer directly needed here
 
 from os_utils import detect_os
 from fs_utils import get_target_directory
