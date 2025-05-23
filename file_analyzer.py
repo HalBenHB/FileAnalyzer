@@ -1,10 +1,11 @@
 # file_analyzer.py
-
+import os
 from os_utils import detect_os
 from fs_utils import get_target_directory
-from directory_analyzer import analyze_directory # We don't need the specific type constants here anymore
-from report_generator import generate_report_filename, write_summary_report # Import new functions
+from directory_analyzer import analyze_directory
+from report_generator import generate_report_filename, write_summary_report
 import config
+from plot_generator import generate_plots # Import the new plotting function
 
 def main():
     """Main function to run the file analysis."""
@@ -45,14 +46,26 @@ def main():
                 print("No files or entries found or accessible to analyze.")
             # --- End Console Summary ---
 
-            report_file = generate_report_filename() # From report_generator
-            write_summary_report( # From report_generator
+            # --- Generate Text Report ---
+            report_file = generate_report_filename()
+            write_summary_report(
                 report_filepath=report_file,
                 summary_data=summary_stats,
                 all_files_data=all_file_details,
                 dir_symlinks_data=dir_symlink_details,
                 os_name=current_os,
                 include_details=config.INCLUDE_DETAILED_SYMLINK_LIST
+            )
+
+            # --- Generate Plots ---
+            plot_output_directory_os = os.path.join(config.PLOT_OUTPUT_DIRECTORY, current_os)
+
+            generate_plots(
+                all_files_data=all_file_details,
+                directory_symlinks_data=dir_symlink_details,
+                summary_data=summary_stats,
+                output_dir=plot_output_directory_os,
+                os_name=current_os
             )
 
             if all_file_details or dir_symlink_details:

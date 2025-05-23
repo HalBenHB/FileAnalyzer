@@ -5,6 +5,9 @@
 # Set to False to omit it and only show the summary table.
 INCLUDE_DETAILED_SYMLINK_LIST = True
 
+# --- Plot Generation Configuration ---
+PLOT_OUTPUT_DIRECTORY = "Plots"
+
 # Number of top hidden file types to display in the "Hidden Items Summary" table.
 TOP_N_HIDDEN_TYPES = 10
 
