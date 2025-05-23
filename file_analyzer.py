@@ -9,6 +9,9 @@ from plot_generator import generate_plots # Import the new plotting function
 
 def main():
     """Main function to run the file analysis."""
+    print("\nProject: File Analysis - CS350")
+    print("\nBy: Halil Nebioğlu - Murat Yiğit Mert")
+
     current_os = detect_os()
     print(f"Running on: {current_os}")
 
@@ -16,9 +19,7 @@ def main():
         print("Unsupported operating system. Exiting.")
         return
 
-    print("\nProject 12: File Analysis - CS350")
     target_dir = get_target_directory(current_os)
-
     if target_dir:
         try:
             # analyze_directory now prints its own start/end messages for the scan
