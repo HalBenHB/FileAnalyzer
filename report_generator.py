@@ -1,17 +1,12 @@
 # report_generator.py
 import datetime
-
-# Import constants from directory_analyzer if they are needed for specific formatting
-# For now, we just need them to know which types to summarize for symlinks.
-# If directory_analyzer is in the same folder, this import should work.
-# Alternatively, pass these constants as arguments if preferred.
-from directory_analyzer import (
-    SYMLINK_TYPE_STR,
-    BROKEN_SYMLINK_TYPE_STR,
-    SYMLINK_TO_DIR_TYPE_STR,
-    SYMLINK_ERROR_TYPE_STR
+from directory_analyzer import ( # Keep these if needed for symlink summary
+    SYMLINK_TYPE_STR, BROKEN_SYMLINK_TYPE_STR,
+    SYMLINK_TO_DIR_TYPE_STR, SYMLINK_ERROR_TYPE_STR
 )
 
+# Number of top hidden file types to display in the table
+TOP_N_HIDDEN_TYPES = 10
 
 def generate_report_filename():
     """Generates a filename with a timestamp."""
@@ -30,10 +25,13 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
 
         f.write("\n--- Overall Summary ---\n")
         f.write(f"Total Directories Scanned (walked into): {summary_data['total_directories_scanned']}\n")
-        f.write(
-            f"Total File-like Entries Processed (from os.walk 'files' list): {summary_data['total_file_entries_processed']}\n")
-        f.write(
-            f"Total Directory Symbolic Links Found (in os.walk 'dirs' list): {summary_data['total_directory_symlinks_found']}\n")
+        f.write(f"Total File-like Entries Processed (from os.walk 'files' list): {summary_data['total_file_entries_processed']}\n")
+        f.write(f"Total Directory Symbolic Links Found (in os.walk 'dirs' list): {summary_data['total_directory_symlinks_found']}\n")
+
+        # --- Display Total Hidden Files Count in Overall Summary ---
+        f.write(f"Total Hidden Items Found (Files & Dir Symlinks): {summary_data.get('total_hidden_files_count', 0)}\n")
+        # ---------------------------------------------------------
+
         if summary_data['skipped_access_errors'] > 0:
             f.write(f"Skipped items due to access/read errors: {summary_data['skipped_access_errors']}\n")
 
@@ -47,7 +45,36 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
         else:
             f.write("No files or entries found or accessible to analyze.\n")
 
-        # --- Symbolic Link Summary Table ---
+        # --- Hidden Files Summary Section ---
+        f.write("\n--- Hidden Items Summary ---\n")
+        total_hidden_count = summary_data.get('total_hidden_files_count', 0)
+        total_hidden_size = summary_data.get('total_hidden_files_size', 0)
+        f.write(f"Total Hidden Items Count: {total_hidden_count}\n")
+        f.write(f"Total Storage Size of Hidden Items (own sizes): {total_hidden_size} bytes\n")
+
+        hidden_types_summary = summary_data.get('hidden_file_types_summary', {})
+        if total_hidden_count > 0 and hidden_types_summary:
+            f.write(f"\nTop {TOP_N_HIDDEN_TYPES} Hidden Item Types by Count:\n")
+            f.write(f"{'Hidden Type':<30} {'Count':>10} {'Total Size (Bytes)':>20}\n")
+            f.write("-" * 65 + "\n")
+
+            # Sort hidden types by count for the top N display
+            # hidden_types_summary is already sorted by count from directory_analyzer
+            count_displayed = 0
+            for item_type, count in hidden_types_summary.items():
+                if count_displayed >= TOP_N_HIDDEN_TYPES:
+                    break
+                size = summary_data['hidden_file_types_size_summary'].get(item_type, 0)
+                f.write(f"{item_type:<30} {count:>10} {size:>20}\n")
+                count_displayed += 1
+            if len(hidden_types_summary) > TOP_N_HIDDEN_TYPES:
+                f.write("... and more ...\n")
+        elif total_hidden_count > 0:
+            f.write("Breakdown by type for hidden items is not available (or all hidden items had errors).\n")
+        else:
+            f.write("No hidden items found.\n")
+        # ------------------------------------
+
         f.write("\n--- Symbolic Link Type Summary ---\n")
         symlink_types_for_summary = [
             SYMLINK_TYPE_STR,
@@ -98,7 +125,7 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
                     f.write(f"    Target Path: {sl['symlink_target_path']}\n")
                     if sl.get('symlink_target_type'):
                         f.write(f"    Target Type: {sl['symlink_target_type']}\n")
-                    if sl.get('symlink_target_size_bytes') is not None:
+                    if sl.get('symlink_target_size_bytes') is not None: # For file symlinks
                         f.write(f"    Target Size (bytes): {sl['symlink_target_size_bytes']}\n")
                     f.write("-" * 20 + "\n")
             else:

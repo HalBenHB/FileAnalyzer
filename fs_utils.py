@@ -49,7 +49,7 @@ def is_hidden(filepath, os_name):
         try:
             # FILE_ATTRIBUTE_HIDDEN is 2
             return bool(filepath.stat().st_file_attributes & 2)
-        except (OSError, AttributeError):
+        except (OSError, AttributeError): # AttributeError if st_file_attributes doesn't exist
             return False
     elif os_name == "Linux":
         return filepath.name.startswith('.')
