@@ -1,58 +1,58 @@
 --- File System Analysis Report ---
 Operating System: Windows
 Analyzed Directory: C:\
-Report Generated: 2025-05-23 22:49:44
+Report Generated: 2025-05-24 22:30:45
 
 --- Overall Summary ---
-Total Directories Scanned (walked into): 341402
-Total File-like Entries Processed (from os.walk 'files' list): 1382650
+Total Directories Scanned (walked into): 341290
+Total File-like Entries Processed (from os.walk 'files' list): 1380718
 Total Directory Symbolic Links Found (in os.walk 'dirs' list): 5
-Total Hidden Items Found (Files & Dir Symlinks): 1372
+Total Hidden Items Found (Files & Dir Symlinks): 1369
 Skipped items due to access/read errors: 70
 
 --- File & Entry Types Summary (Count & Size of Type Entry) ---
 Extension/Type                      Count   Total Size (Bytes)
 -----------------------------------------------------------------
-.<no_ext>                          203312          60000193685
-.png                               130376           2480645916
-.dll                                97045          69677454805
-.manifest                           78636            401503251
-.js                                 69679           4674167729
-.xml                                61096            844816672
-.py                                 43370            605050869
-.cat                                40299            968060165
-.mui                                39957            359807470
+.<no_ext>                          203403          59984762733
+.png                               129718           2460313719
+.dll                                96491          69737186981
+.manifest                           78642            401510719
+.js                                 69621           4625144201
+.xml                                61036            839890458
+.py                                 43373            605075358
+.cat                                40298            967932211
+.mui                                39956            359791054
 .m                                  37804            122244991
-.svg                                36585            224777238
 .mum                                36402             92951732
-.pyc                                32891            510196147
-.json                               30849            922047264
+.svg                                35956            213193885
+.pyc                                33755            530301878
+.json                               30623            911975706
 .pyi                                23963             54801508
-.txt                                16099            563724829
-.h                                  16077            308071889
-.jpg                                15420          13962825409
+.h                                  16074            308064310
+.txt                                15677            561195279
+.jpg                                15404          13968672970
 .res                                12489             62088973
-.exe                                11222          20069348558
+.exe                                11232          20104853422
 .p                                  11054              8248684
 .ts                                 10798            413007058
-.html                                9750            474679694
-.gif                                 7912            285107006
-.pri                                 6975            492044835
-.log                                 6903           1406471957
+.html                                9732            472597480
+.gif                                 7882            276845405
+.pri                                 6912            489346851
+.log                                 6871           1408103443
 .gz                                  6757            571326461
-.map                                 6035            461781226
+.map                                 6037            461291574
 .rst                                 5979              8554498
-.md                                  5816             39179028
+.md                                  5813             39137774
 .md5                                 5537               188596
-.jar                                 5309          10172722015
+.jar                                 5308          10172720754
 .ccz                                 5282            763349537
 .xrm-ms                              5217             61772793
 .dcp                                 4445            868978828
-.css                                 4430            305706063
+.css                                 4407            299336088
+.pak                                 4131           4594190457
 .meta                                4110              1186757
 .cmake                               4089             17122344
-.pak                                 4044           4437432126
-.dat                                 3974           3864132710
+.dat                                 3971           3816097962
 .len                                 3903                31224
 .rtf                                 3695             92442800
 .rights                              3502             16688261
@@ -60,30 +60,30 @@ Extension/Type                      Count   Total Size (Bytes)
 .inf                                 3239            182067107
 .lcp                                 3226            456720098
 .class                               3179             20272078
-.sys                                 3047          19834351028
+.sys                                 3047          15010094516
 .ocl                                 2954            436068096
 .adml                                2949              8351872
 .cdf-ms                              2703              5395936
-.bin                                 2553           1421486999
+.bin                                 2554           1413981785
 .ini                                 2456             48946516
 .qml                                 2421             12464861
-.ttf                                 2389            946178804
+.ttf                                 2388            946088948
 .properties                          2357             43695848
 .mfl                                 2237             22150259
 .pl                                  2163             19121068
 .bmp                                 2113            184493777
 .inf_loc                             2092              6685604
-.etl                                 1956            496676252
+.etl                                 1959            491920593
 .woff                                1910             71256959
 .hpp                                 1862             20271229
 .rds                                 1842              4987131
 .diff                                1802               585829
 .shasum                              1789                 8840
-.sig                                 1762               482780
+.sig                                 1766               488336
 .cso                                 1723             36491398
 .bo                                  1698                86040
 .pm                                  1696             36455119
-.jpeg                                1691            442961875
+.jpeg                                1695            445163383
 .eddx                                1670            133912557
 .winmd                               1664            143680032
 .kfg                                 1657              1636036
@@ -92,12 +92,12 @@ Extension/Type                      Count   Total Size (Bytes)
 .cdxml                               1556              9604962
 .mof                                 1539             55844657
 .bpf                                 1526               220723
-.lnk                                 1461              1229060
-.sav                                 1461           6131061104
+.sav                                 1459           6130785811
+.lnk                                 1455              1223506
 .r                                   1441              6443840
 .translation                         1431            155062773
 .java                                1396              3338918
-.webp                                1395             82908576
+.webp                                1395             83181242
 .tcl                                 1386             11970385
 .sha1                                1349                54156
 .pyd                                 1301           1602791173
@@ -106,22 +106,22 @@ Extension/Type                      Count   Total Size (Bytes)
 .wmf                                 1280             16544682
 .sbb                                 1248            105153350
 .xmp                                 1232             46174447
-.old                                 1217             16945785
+.old                                 1217             16947990
 .hyb                                 1195             40788855
 .a                                   1179            132141439
-.mp4                                 1167          36183449763
+.mp4                                 1148          35136366040
 .ps1xml                              1110             10960628
-.ico                                 1080             70334840
 .wma                                 1079            185791797
+.ico                                 1075             70098503
 .as                                  1042              7704549
 .swf                                 1019            430477372
 .wav                                 1006            225050225
 .gitignore                            998               550842
-.htm                                  973             15479706
+.htm                                  972             15309432
 .aex                                  960            408823808
 .version                              952               223068
 .lng                                  949             57346247
-.lib                                  934            228947202
+.lib                                  933            228943988
 .resx                                 926              3417296
 .xsl                                  909             33584826
 .msg                                  905            321843132
@@ -132,31 +132,31 @@ Extension/Type                      Count   Total Size (Bytes)
 .c                                    875             45436702
 .file                                 865           1370037235
 .repositories                         859               172968
-.csv                                  850            201825499
-.storage                              840             26714112
+.csv                                  850            206365970
+.storage                              840             26718208
 .resjson                              821            121647716
 .inc                                  817             50788110
 .psd1                                 815              3362986
 .0                                    798             48716915
-.ldb                                  780            619395012
-.man                                  775             15588997
-.config                               748              4136332
+.man                                  775             15588854
+.ldb                                  762            602613693
+.config                               747              4136125
 .scss                                 733              3156516
 .mun                                  720            337357116
 .dectest                              715             22086473
-.at                                   695              6200118
+.at                                   696              6225695
 .tga                                  671             21966754
 .strings                              661              5859639
-.pdf                                  657           1220723798
+.pdf                                  650           1219375582
 .ver                                  645                24186
 .xbf                                  643              1714930
 .exv                                  639              3530328
 .qmlc                                 626              8485420
-.p7x                                  618              5752758
 .yml                                  616               704990
+.p7x                                  614              5703855
 .admx                                 609              7784085
-.db                                   607           5196145529
-.1                                    602            146392548
+.db                                   606           5204595428
+.1                                    602            146392044
 .sse                                  582            122315842
 .cab                                  575           1982173065
 .sql                                  571             10823510
@@ -169,14 +169,14 @@ Extension/Type                      Count   Total Size (Bytes)
 .idl                                  522             19928926
 .cur                                  516             16938945
 .phl                                  516                48918
-.wer                                  501             14623490
+.wer                                  500             14610190
 .eve                                  494              1800341
 .save                                 494             86286279
 .pnf                                  487             49680612
 .edl                                  481             33098160
 .edt                                  480            601818940
-.cpp                                  479              3487148
-.data                                 466           2727727763
+.cpp                                  478              3359153
+.data                                 467           2727731505
 .jsonrsa                              465               244864
 .aux                                  453               740238
 .jcp                                  451                74865
@@ -193,43 +193,42 @@ Extension/Type                      Count   Total Size (Bytes)
 .nls                                  401             67039174
 .msc                                  395             16579879
 .sqpreset                             392              2403217
-.woff2                                390             11488184
 .keystream                            387             30998528
 .psm1                                 386             12516548
 .fon                                  384             10242560
 .evtx                                 379            417443840
-.crwl                                 366                 9276
+.crwl                                 367                 9278
 .pimx                                 359             77122911
+.woff2                                359             10996272
 .jmod                                 357            389340955
 .aspx                                 345              3359719
-.log1                                 342             57572352
-.log2                                 342             56671232
-.storage_i                            341            131399680
-.fingerprint                          340                22440
+.storage_i                            342            131432448
+.log1                                 340             33899520
+.log2                                 340             57183232
+.fingerprint                          337                22242
 .ims                                  337               482801
 .fla                                  334            134053269
 .yaml                                 334             11970664
 .rgx                                  318            118108363
 .bundle                               316            245090072
 .cov                                  312               110674
-.lock                                 302              1281574
 .layout                               300              6124210
+.lock                                 298              1281558
 .tlb                                  297             33372012
-.tmp                                  291            154285401
 .pckgdep                              291               835732
 .caw                                  290              4556592
 .ecm                                  290              4345104
 .rgb                                  290              4356704
 .vis                                  290              5876240
 .nlp                                  288             22258124
-.zip                                  275           2562983152
-.idx                                  275             30628426
+.tmp                                  283            114264967
+.zip                                  275           2563059995
+.idx                                  271             30366218
 .mexw64                               271             74492928
-.10                                   264             14719529
+.10                                   264             14719532
 .webm                                 255            234219787
 .icc                                  250             62813804
 .rmd                                  249              2413189
-.pf                                   243              7404587
 .pod                                  242             11878632
 .theme                                240              3753056
 .itx                                  234            169092240
@@ -238,7 +237,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .exdata                               228                35682
 .pagedata                             228             15967494
 .xbm                                  226               296870
-.ipynb                                224             40061817
+.ipynb                                222             40061657
 .sample                               220               428977
 .pdb                                  219            278250328
 .rsa                                  217              2000155
@@ -246,11 +245,11 @@ Extension/Type                      Count   Total Size (Bytes)
 .spi1d                                212             90701949
 .mdx                                  211              6484050
 .sps                                  210               724676
-.pb                                   209             11380208
 .zdct                                 208              5015158
 .typed                                207                 3616
+.waptt                                207             11414110
+.pb                                   206             10988244
 .bik                                  206           3679084204
-.waptt                                205             11301093
 .cmd                                  202               128949
 .2                                    201             80200043
 .bnk                                  201            498405533
@@ -262,31 +261,32 @@ Extension/Type                      Count   Total Size (Bytes)
 .l3t                                  193              9316640
 .pkg                                  192           1759498949
 .pkg_manifest                         192              9461923
-.dic                                  191            219582958
-.bat                                  189               824230
-.torrent                              187              6156306
+.dic                                  191            219583004
 .browser                              187              1457741
+.bat                                  186               824082
 .xhtml                                185              4438246
+.torrent                              185              6138208
 .pem                                  182              9925565
+.pma                                  181            116017256
 .aapp                                 180               673950
-.pma                                  180            116009648
 .prm                                  178            182860248
+.pf                                   176              6624390
 .mw                                   176            189219122
 .catalogitem                          176              1248439
 .index                                175            296978111
 .node                                 172            149529304
+.s                                    171               106484
 .spi3d                                169           1547153569
-.s                                    169               106051
 .bcmap                                168              1165667
 .cjs                                  167              2493621
 .ddj                                  166               584552
 .vdf                                  166              5255969
-.automaticdestinations-ms             165             20111504
+.automaticdestinations-ms             165             20111514
 .v2                                   164               753934
 .gpd                                  163              1555309
 .pxd                                  162              1260996
+.values                               159            373008252
 .chm                                  158            230296131
-.values                               157            371022856
 .sh                                   155               460779
 .mogrt                                154            449728234
 .prefs                                154               243116
@@ -316,12 +316,13 @@ Extension/Type                      Count   Total Size (Bytes)
 .db-journal                           125                    0
 .dsl                                  122              1935389
 .dotx                                 120             36546233
-.resw                                 120              5492385
+.resw                                 119              5492281
 .policy                               118               246109
 .cube                                 118             59992125
 .rll                                  118            179521912
 .ax                                   118             35210958
 .f                                    117               195753
+.msix                                 115            150984615
 .conf                                 115               945112
 .pqx                                  115              7084730
 .ppkg                                 115              7797949
@@ -337,14 +338,13 @@ Extension/Type                      Count   Total Size (Bytes)
 .maplet                               108               334842
 .bytes                                107            208117424
 .poc                                  106             21526734
-.msix                                 104            149388542
 .eot                                  104              8622640
-.3                                    104              7593379
+.3                                    104              7594026
 .pyx                                  104              5975704
-.5                                    103              9721487
+.5                                    103              9721483
 .rnw                                  100              1963282
-.val                                  100              8682192
 .xpm                                   96               109567
+.val                                   96              8675536
 .def                                   95               418952
 .mm                                    90              1895608
 .orig                                  90               312574
@@ -353,7 +353,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .code-snippets                         88               161846
 .vbs                                   87              4320843
 .ent                                   87               638796
-.bak                                   85             37800987
+.bak                                   85             47520728
 .dtd                                   85              1595212
 .default                               85              1209244
 .efi                                   85             72422276
@@ -362,7 +362,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .sa                                    84               370148
 .jsfl                                  83              1245399
 .license                               83               594892
-.4                                     83             72124713
+.4                                     83             72124070
 .custom                                83                 3995
 .aff                                   81             10187152
 .dmp                                   77           5895555473
@@ -374,16 +374,17 @@ Extension/Type                      Count   Total Size (Bytes)
 .ogg                                   73              1771304
 .ttc                                   73            561254221
 .control                               73                10970
-.docx                                  72             43609295
 .cxx                                   72                28768
 .fc                                    72               360074
-.prproj                                71             18217398
+.prproj                                70             18192862
+.docx                                  70             43514001
 .rsp                                   70               245723
 .v4sdmeta                              68              1553241
 .27                                    68               491686
-.wasm                                  67            150148023
 .anm                                   67             34340133
-.7                                     66              3331069
+.wasm                                  66            125793067
+.url                                   66                11320
+.7                                     66              3331070
 .dpv                                   65             36920000
 .psd                                   64            304269076
 .master                                64               141319
@@ -391,10 +392,9 @@ Extension/Type                      Count   Total Size (Bytes)
 .look                                  63               504517
 .fo                                    63              1342774
 .j2                                    63               175500
-.pek                                   62            107442188
 .pht                                   62               210210
-.url                                   61                10780
-.8                                     61              2286195
+.8                                     61              2286194
+.pek                                   61            107423688
 .calendar                              60               267699
 .npz                                   60             14063115
 .archive                               60             27379368
@@ -414,7 +414,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .jst                                   55               107612
 .tex                                   54               537428
 .db-shm                                54              1769472
-.db-wal                                54             75774120
+.db-wal                                54             83466160
 .es3                                   54              1033755
 .cl_cache                              54             10011448
 .gdl                                   54               824481
@@ -434,7 +434,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .hbakedcurve                           50               108606
 .sdb                                   49             39997213
 .backup                                48              3549696
-.tbres                                 48               383492
 .reg                                   47              4670514
 .pfb                                   47              1601978
 .onnx                                  47             46126171
@@ -445,13 +444,14 @@ Extension/Type                      Count   Total Size (Bytes)
 .mlem                                  46            973938432
 .effect                                46               150584
 .ejs                                   46                88687
+.tbres                                 46               370876
 .less                                  46                94302
 .hash                                  45                 4792
 .tcc                                   45               907976
 .elm                                   45              3001912
 .resources                             45              6308939
 .pcm                                   45               750565
-.customdestinations-ms                 45               264259
+.customdestinations-ms                 45               264449
 .p7b                                   45              1808394
 .lst                                   44              3480086
 .ps                                    44                90511
@@ -551,7 +551,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .tfm                                   28                33324
 .nvx                                   28               713090
 .assets                                28            911478010
-.log_backup1                           28               431762
+.log_backup1                           28               709923
 .fast                                  28            117440512
 .onetoc2                               28               163592
 .tsp                                   28              2291457
@@ -579,6 +579,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .blog                                  26            101221418
 .temp                                  26               292156
 .cbz                                   26            990346575
+.wprp                                  25               291259
 .expected                              25                10697
 .npy                                   25               872375
 .htmtx                                 25               180204
@@ -598,7 +599,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .19                                    24                   79
 .jfm                                   24               458752
 .tag                                   24               299450
-.wprp                                  23               253614
 .htmt                                  23               354882
 .doc                                   23              1667160
 .colg                                  23                16069
@@ -647,7 +647,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .certs                                 19                44133
 .tmpl                                  19                 7909
 .fx                                    19                93258
-.sccd                                  19               299009
+.sccd                                  19               300387
 .spkg                                  19            107522512
 .cfe                                   19              3318043
 .stl                                   19               264451
@@ -660,7 +660,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .sdi                                   19             28533286
 .jas                                   19                24255
 .mfdc                                  19             20063549
-.mkv                                   18           1010673443
 .icm                                   18              1193591
 .anp                                   18                55563
 .nib                                   18               431156
@@ -701,6 +700,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .cache                                 16              4807192
 .0, culture=neutral, publickeytoken=31bf3856ad364e35         16                    0
 .31                                    16                    0
+.edb                                   16           1224081408
 .0-48b11410dc937a1723bf4c5ad33ecdb286d8ec69544241bc373f753e64b396c1         16              2087024
 .2_i                                   16               524288
 .history                               16                38962
@@ -715,7 +715,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .22                                    15                    0
 .32                                    15                  102
 .chk                                   15               122880
-.edb                                   15           1223819264
 .flow                                  15               594752
 .rewasd                                15               488087
 .8bi                                   14            241924096
@@ -755,6 +754,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .ot                                    13                 9059
 .xslt                                  13                45296
 .0, culture=neutral, publickeytoken=cc7b13ffcd2ddd51         13                    0
+.jtx                                   13             28311552
 .blf                                   13               851968
 .binarypb                              13                32061
 .ipch                                  13            104595456
@@ -777,14 +777,15 @@ Extension/Type                      Count   Total Size (Bytes)
 .c4dnodectx                            12                 6825
 .jsc                                   12                48656
 .v7product                             12                55078
-.jtx                                   12             27262976
 .index_inputs_i                        12              1703936
 .name_inputs                           12                49152
 .8_i                                   12               393216
+.true                                  12              6122938
 .wpl                                   12                12324
 .csvy                                  12                 4642
 .tree                                  12                96734
 .msstyles                              12              4373677
+.mkv                                   12              8952112
 .apm                                   12             44749876
 .unt                                   12              3224404
 .wih                                   12                  624
@@ -836,7 +837,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .tgz                                   10                48468
 .natvis                                10               287834
 .updrevertbackup1                      10              9406106
-.true                                  10              5308415
 .heic                                  10             14678637
 .prmdc2-shm                            10               327680
 .prmdc2-wal                            10             13412368
@@ -868,6 +868,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .resource                               9            283718880
 .metadata                               9                 2380
 .21                                     9               129234
+.001                                    9             10960896
 .0-0                                    9                32229
 .library-ms                             9                15341
 .rpt                                    9                 3665
@@ -903,7 +904,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .250402                                 8                    0
 .client                                 8                    0
 .1, culture=neutral, publickeytoken=cc7b13ffcd2ddd51          8                    0
-.vdm                                    8            374012776
+.vdm                                    8            374886256
 .flag                                   8             16777216
 .hashtoid                               8              8388608
 .mmap                                   8             50331648
@@ -993,8 +994,8 @@ Extension/Type                      Count   Total Size (Bytes)
 .69d0d51ad8d1aabaae811b5bc6f72729beebe8ab40c8e6080c8255453f913377          6             10044030
 .1ab07e887acca305058eeab9053c96dc531c2c5c067ab4f30afa2b31f1edd966          6               136872
 .95fd9d48e4fc245a3f3a99a3a16ecd1355050ba3f4afc555f19a97c7f9b49677          6                 8130
-.storagedata                            6             15591237
-.storagerecordindex                     6               338120
+.storagedata                            6             15682121
+.storagerecordindex                     6               351304
 .c4                                     6               196608
 .oab                                    6                27695
 .tbacctpic1080x1080                     6               259263
@@ -1012,7 +1013,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .ds                                     6                16442
 .hbakedproj                             6                21654
 .hkdoc                                  6                18842
-.004                                    6              8540160
 .dll_423f7010                           6              9523200
 .<symlink_to_dir>                       5                    0
 .ffpreset                               5                 1127
@@ -1061,7 +1061,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .sdk                                    5                    0
 .33                                     5                    0
 .2221                                   5                    0
-.gthr                                   5                94110
+.gthr                                   5                58762
 .lkg                                    5            213408032
 .desklink                               5                   35
 .mapimail                               5                   20
@@ -1088,8 +1088,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .msixbundle                             5              5404968
 .shareddllx64                           5              8989496
 .cty                                    5               730180
-.005                                    5                98304
-.006                                    5                90112
 .007                                    5                98304
 .008                                    5                98304
 .009                                    5                98304
@@ -1100,8 +1098,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .014                                    5                77824
 .015                                    5                94208
 .016                                    5                81920
-.txtt                                   4                  582
-.cfa                                    4             28311552
 .vch                                    4              1193152
 .gypi                                   4                 8105
 .lut                                    4              2028338
@@ -1175,16 +1171,15 @@ Extension/Type                      Count   Total Size (Bytes)
 .46                                     4                  226
 .http                                   4                    0
 .2, culture=neutral, publickeytoken=cc7b13ffcd2ddd51          4                    0
-.001                                    4             10862592
-.002                                    4              9519104
-.log_backup                             4                30339
+.002                                    4             10862592
+.log_backup                             4               427570
 .rnd                                    4                  512
 .closure-compiler                       4                45432
 .esprima                                4                 4924
 .crp                                    4             68252654
-.vhdx                                   4           4213178368
+.vhdx                                   4           4262461440
 .post                                   4                  816
-.fbs                                    4               403668
+.fbs                                    4               276540
 .session                                4                61888
 .names                                  4                16384
 .names_i                                4               131072
@@ -1209,7 +1204,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .pwd                                    4                 5324
 .tz                                     4            182224573
 .dictionary                             4              1903759
-.vdi                                    4          19826475008
+.vdi                                    4          19833815040
 .lm2                                    4               763260
 .lm1                                    4              4630522
 .lm3                                    4               796364
@@ -1239,8 +1234,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .cpx                                    4                 8768
 .dll_9c499789                           4              6137936
 .marker                                 3                    0
-.asd                                    3               171732
-.prin                                   3                31084
 .sif                                    3                 1859
 .der                                    3                 3430
 .nav                                    3              1372168
@@ -1329,8 +1322,8 @@ Extension/Type                      Count   Total Size (Bytes)
 .97                                     3                    0
 .25                                     3                   79
 .51                                     3                    0
+.0, culture=neutral, publickeytoken=null          3                 1157
 .vpol                                   3                 1336
-.tile                                   3               848200
 .xmi                                    3               613926
 .liv                                    3                  385
 .db_i                                   3                98304
@@ -1390,6 +1383,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .tplx                                   3                 4748
 .spool                                  3                 1524
 .acrodata                               3              5855685
+.cfa                                    3             23592960
 .0-win32-x64                            3             23081258
 .2024-01-25                             3               802483
 .prev                                   3               749349
@@ -1409,8 +1403,6 @@ Extension/Type                      Count   Total Size (Bytes)
 .wmv                                    3              1420374
 .cpa                                    3              4113671
 .addin                                  3                  945
-.xlsb                                   2                20519
-.<broken_symlink>                       2                    0
 .whtt                                   2                    0
 .shx                                    2                19180
 .vm                                     2              1686692
@@ -1588,7 +1580,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .64                                     2                    0
 .40                                     2                    0
 .netstandard                            2                    0
-.112                                    2                 1261
+.112                                    2                 1290
 .shared                                 2                    0
 .kernel32                               2                    0
 .ratelimiting                           2                    0
@@ -1604,14 +1596,14 @@ Extension/Type                      Count   Total Size (Bytes)
 .net5                                   2                    0
 .protocol                               2                    0
 .accesscontrol, culture=neutral, publickeytoken=b03f5f7f11d50a3a          2                    0
-.0, culture=neutral, publickeytoken=null          2                  556
 .json, culture=neutral, publickeytoken=cc7b13ffcd2ddd51          2                    0
 .1, culture=neutral, publickeytoken=b03f5f7f11d50a3a          2                    0
 .000                                    2                  480
 .srd                                    2             23068672
 .srd-shm                                2                65536
-.srd-wal                                2               700432
-.87                                     2             12351063
+.srd-wal                                2                    0
+.tile                                   2               558976
+.87                                     2             12351103
 .uuid                                   2                   32
 .set                                    2                  486
 .567f5df81ea0c9bdcfb7221f0ea091893150f8c16e3012e4f0314ba3d43f1632          2             29015078
@@ -2463,20 +2455,20 @@ Extension/Type                      Count   Total Size (Bytes)
 .valuetuple, culture=neutral, publickeytoken=cc7b13ffcd2ddd51          1                    0
 .http, culture=neutral, publickeytoken=31bf3856ad364e35          1                    0
 .bin64                                  1              2117664
-.01                                     1              1712072
-.67                                     1             53789536
-.6c                                     1              3293056
+.01                                     1              1712800
+.67                                     1             53810560
+.6c                                     1              3293184
 .79                                     1             63451136
 .7c                                     1              8552448
-.7e                                     1             51317536
+.7e                                     1             51273984
 .80                                     1             24496044
 .83                                     1              2028520
 .a0                                     1             32549440
 .e6                                     1                69336
 .lk                                     1                    0
 .dat-shm                                1                32768
-.dat-wal                                1              4124152
-.nvlgstg                                1               492980
+.dat-wal                                1              3642112
+.nvlgstg                                1                48012
 .14912                                  1                  395
 .18908                                  1                  294
 .1676                                   1                  295
@@ -8255,9 +8247,9 @@ Extension/Type                      Count   Total Size (Bytes)
 .latest                                 1                    7
 .legal                                  1                41751
 .bla                                    1                 5133
-.202505202102                           1               230917
 .202505212353                           1               184533
 .202505221657                           1               110387
+.202505232347                           1               226249
 .was                                    1                19720
 .blk                                    1                    6
 .ink                                    1                    0
@@ -8331,7 +8323,8 @@ Extension/Type                      Count   Total Size (Bytes)
 .box                                    1                11776
 .srs                                    1                 4096
 .mydocs                                 1                    0
-.mpcpl                                  1                  164
+.asd                                    1                    0
+.mpcpl                                  1                  184
 .m@2024-01-16_120636                    1                  443
 .txt@2025-05-11_201650                  1               100892
 .md@2024-04-22_124808                   1                 2570
@@ -8359,6 +8352,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .pcfg                                   1                30200
 .bxd                                    1                  439
 .pages                                  1              1229204
+.prin                                   1                13279
 .ftm                                    1               491520
 .ftmb                                   1               491753
 .cbp                                    1                22992
@@ -8367,6 +8361,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .hf2                                    1                   14
 .cmsl                                   1                   76
 .cms                                    1                   72
+.crdownload                             1                 9002
 .timestamps                             1                  313
 .20230309-1200                          1               276727
 .202303201430                           1                 3333
@@ -8433,8 +8428,8 @@ Extension/Type                      Count   Total Size (Bytes)
 .fb                                     1              1741360
 .conv_model                             1                40808
 .lstm_model                             1               161448
-.vbox                                   1                25513
-.vbox-prev                              1                25509
+.vbox                                   1                24373
+.vbox-prev                              1                25513
 .viso                                   1                  771
 .hve                                    1              6815744
 .tme                                    1                    0
@@ -8478,6 +8473,7 @@ Extension/Type                      Count   Total Size (Bytes)
 .rgba                                   1                66304
 .mdu                                    1               303076
 .xmu                                    1             10012231
+.004                                    1              8437760
 .2{ce551d4c-2644-4988-a71a-24dd8684350c}          1                 4270
 .30319                                  1                 3706
 .30319 64                               1                 3712
@@ -8984,15 +8980,15 @@ Extension/Type                      Count   Total Size (Bytes)
 .dll_c136fd9e                           1               101352
 
 --- Hidden Items Summary ---
-Total Hidden Items Count: 1372
-Total Storage Size of Hidden Items (own sizes): 19637278956 bytes
+Total Hidden Items Count: 1369
+Total Storage Size of Hidden Items (own sizes): 14789873503 bytes
 
 Top 10 Hidden Item Types by Count:
 Hidden Type                         Count   Total Size (Bytes)
 -----------------------------------------------------------------
-.log1                                 342             57572352
-.log2                                 342             56671232
-.dat                                  171             43794989
+.log1                                 340             33899520
+.log2                                 340             57183232
+.dat                                  172             43794989
 .<no_ext>                             154               485377
 .ini                                  110                39218
 .mui                                   76               693248
@@ -9007,24 +9003,11 @@ Symlink Category                    Count    Total Own Size (Bytes)
 ----------------------------------------------------------------------
 Symlinks to Files                      13                         0
 Symlinks to Directories                 5                         0
-Broken Symlinks                         2                         0
 ----------------------------------------------------------------------
-Total Symlinks                         20                         0
+Total Symlinks                         18                         0
 
 --- Symbolic Link Details (Detailed List) ---
-Found 20 symbolic links (file and directory targets):
-  Link: C:\$Recycle.Bin\S-1-5-21-4231376888-4163184112-1824967254-1001\$RR4VUM8.txt
-    Type: .<broken_symlink>
-    Own Size (bytes): 0
-    Target Path: C:\$Recycle.Bin\S-1-5-21-4231376888-4163184112-1824967254-1001\cookies.txt
-    Target Type: .<broken>
---------------------
-  Link: C:\$Recycle.Bin\S-1-5-21-4231376888-4163184112-1824967254-1001\$RXX5YD5
-    Type: .<broken_symlink>
-    Own Size (bytes): 0
-    Target Path: C:\$Recycle.Bin\S-1-5-21-4231376888-4163184112-1824967254-1001\LMS
-    Target Type: .<broken>
---------------------
+Found 18 symbolic links (file and directory targets):
   Link: C:\Benim Web Sitem\cookies-SymbolicLink.txt
     Type: .<symlink>
     Own Size (bytes): 0

@@ -41,7 +41,7 @@ def analyze_directory(directory_path, os_name):
     treating symlinks as distinct items with their own sizes.
     Also identifies directory symbolic links and shows progress.
     """
-    print(f"\nStarting analysis of: {directory_path}\n")
+    print(f"Starting analysis of: {directory_path}")
     abs_directory_path = pathlib.Path(directory_path).resolve()
     print(f"Analyzing: {abs_directory_path}")
 
