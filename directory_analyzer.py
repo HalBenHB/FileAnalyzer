@@ -218,6 +218,17 @@ def analyze_directory(directory_path, os_name):
                         file_info['type'] = NON_FILE_TYPE_STR
                         print(f"\nWarning: Non-regular file '{file_path}' (mode: {oct(lstat_info.st_mode)}) found.", file=sys.stderr)
 
+                # EXTREMELY_LARGE_THRESHOLD = 10**12 # 1 TB, adjust as needed
+                #
+                # if file_info['size_bytes'] > EXTREMELY_LARGE_THRESHOLD:
+                #     print(f"\n[DEBUG] Extremely large file detected: "
+                #           f"Path: {file_info['path']}, Size: {file_info['size_bytes']} bytes, "
+                #           f"Type: {file_info['type']}, IsSymlink: {file_info['is_symlink']}", file=sys.stderr)
+                #     if file_info['is_symlink']:
+                #         print(f"          Symlink Target: {file_info.get('symlink_target_path')}", file=sys.stderr)
+                #         print(f"          Symlink Target Size: {file_info.get('symlink_target_size_bytes')}", file=sys.stderr)
+                #     return None, None, None
+
                 all_files_data.append(file_info)
                 # General aggregation
                 file_types_count[file_info['type']] += 1
