@@ -91,61 +91,76 @@ def analyze_directory(directory_path, os_name):
             spinner_idx += 1
 
         # --- Process directory entries to find directory symlinks ---
+        processed_dirs_this_iteration = [] # To keep track of dirs successfully processed
         for dir_name in dirs:
             dir_path_obj = current_path_obj / dir_name
-            if dir_path_obj.is_symlink():
-                final_total_dir_symlinks_found += 1
-                dir_symlink_info = {
-                    'path': dir_path_obj, 'name': dir_name, 'is_symlink': True,
-                    'type': SYMLINK_TO_DIR_TYPE_STR, 'symlink_target_path': None,
-                    'symlink_target_type': '.<dir>', 'size_bytes': 0, 'is_hidden': False # Assume dir symlinks themselves aren't typically "hidden" by name convention
-                }
-                try:
-                    # Check if the symlink itself is hidden (e.g. .my_hidden_dir_link -> some_dir)
-                    dir_symlink_info['is_hidden'] = is_hidden(dir_path_obj, os_name)
+            try: # <------------------------------------ ADD TRY HERE
+                if dir_path_obj.is_symlink():
+                    final_total_dir_symlinks_found += 1
+                    dir_symlink_info = {
+                        'path': dir_path_obj, 'name': dir_name, 'is_symlink': True,
+                        'type': SYMLINK_TO_DIR_TYPE_STR, 'symlink_target_path': None,
+                        'symlink_target_type': '.<dir>', 'size_bytes': 0, 'is_hidden': False
+                    }
+                    # The following try-except is for issues within symlink processing
+                    try:
+                        dir_symlink_info['is_hidden'] = is_hidden(dir_path_obj, os_name)
+                        lstat_info = dir_path_obj.lstat()
+                        dir_symlink_info['size_bytes'] = lstat_info.st_size
+                        target_path_str = os.readlink(dir_path_obj)
 
-                    lstat_info = dir_path_obj.lstat()
-                    dir_symlink_info['size_bytes'] = lstat_info.st_size
-                    target_path_str = os.readlink(dir_path_obj)
+                        # Use the new helper function to get absolute path without full resolve
+                        # This should prevent symlink loop errors from .resolve()
 
-                    # Use the new helper function to get absolute path without full resolve
-                    # This should prevent symlink loop errors from .resolve()
-                    immediate_absolute_target = get_absolute_target_path(dir_path_obj, target_path_str)
-                    dir_symlink_info['symlink_target_path'] = immediate_absolute_target
+                        immediate_absolute_target = get_absolute_target_path(dir_path_obj, target_path_str)
+                        dir_symlink_info['symlink_target_path'] = immediate_absolute_target
 
-                    # Now check existence and type of this immediate_absolute_target
-                    if not immediate_absolute_target.exists(): # This .exists() might still follow one level of symlink if target is a symlink
-                        dir_symlink_info['symlink_target_type'] = ".<broken>"
-                        dir_symlink_info['type'] = BROKEN_SYMLINK_TYPE_STR
-                    elif not immediate_absolute_target.is_dir(): # .is_dir() also follows one level if needed
-                        dir_symlink_info['symlink_target_type'] = ".<target_not_dir>"
-                        dir_symlink_info['type'] = SYMLINK_TYPE_STR # It's a symlink, but points to a non-dir
-                        print(f"\nWarning: Dir symlink {dir_path_obj} points to non-dir {immediate_absolute_target}", file=sys.stderr)
-                    # If it exists and is a dir, symlink_target_type remains '.<dir>' (default)
+                        # Now check existence and type of this immediate_absolute_target
 
-                except RuntimeError as e_runtime: # Catch potential symlink loops from exists() or is_dir() if they go too deep
-                    print(f"\nRuntimeError (likely symlink loop) processing dir symlink target {dir_path_obj}: {e_runtime}", file=sys.stderr)
-                    dir_symlink_info['type'] = SYMLINK_ERROR_TYPE_STR
-                    dir_symlink_info['symlink_target_path'] = f"Error: {e_runtime}"
+                        if not immediate_absolute_target.exists():
+                            dir_symlink_info['symlink_target_type'] = ".<broken>"
+                            dir_symlink_info['type'] = BROKEN_SYMLINK_TYPE_STR
+                        elif not immediate_absolute_target.is_dir():
+                            dir_symlink_info['symlink_target_type'] = ".<target_not_dir>"
+                            dir_symlink_info['type'] = SYMLINK_TYPE_STR
+                            print(f"\nWarning: Dir symlink {dir_path_obj} points to non-dir {immediate_absolute_target}", file=sys.stderr)
+                        # If it exists and is a dir, symlink_target_type remains '.<dir>' (default)
 
-                except OSError as e_link:
-                    print(f"\nOSError processing dir symlink {dir_path_obj}: {e_link}", file=sys.stderr)
-                    dir_symlink_info['type'] = SYMLINK_ERROR_TYPE_STR
-                    dir_symlink_info['symlink_target_path'] = f"Error: {e_link}"
 
-                directory_symlinks_data.append(dir_symlink_info)
-                # General aggregation for symlink types
-                file_types_count[dir_symlink_info['type']] += 1
-                file_types_size[dir_symlink_info['type']] += dir_symlink_info['size_bytes']
+                    except RuntimeError as e_runtime:
+                        print(f"\nRuntimeError processing dir symlink target {dir_path_obj}: {e_runtime}", file=sys.stderr)
+                        dir_symlink_info['type'] = SYMLINK_ERROR_TYPE_STR
+                        dir_symlink_info['symlink_target_path'] = f"Error: {e_runtime}"
+                    except OSError as e_link_ops: # Catch OS errors during readlink, lstat on symlink itself
+                        print(f"\nOSError processing dir symlink {dir_path_obj} (target ops or link itself): {e_link_ops}", file=sys.stderr)
+                        dir_symlink_info['type'] = SYMLINK_ERROR_TYPE_STR
+                        dir_symlink_info['symlink_target_path'] = f"Error: {e_link_ops}"
 
-                # --- Aggregate hidden status for directory symlinks ---
-                if dir_symlink_info['is_hidden']:
-                    total_hidden_files_count += 1 # Count hidden dir symlinks as hidden items
-                    total_hidden_files_size += dir_symlink_info['size_bytes'] # Add their own size
-                    hidden_file_types_count[dir_symlink_info['type']] += 1 # Track type of hidden symlink
-                    hidden_file_types_size[dir_symlink_info['type']] += dir_symlink_info['size_bytes']
-                # -------------------------------------------------------
+                    directory_symlinks_data.append(dir_symlink_info)
+                    file_types_count[dir_symlink_info['type']] += 1
+                    file_types_size[dir_symlink_info['type']] += dir_symlink_info['size_bytes']
+                    if dir_symlink_info['is_hidden']:
+                        total_hidden_files_count += 1
+                        total_hidden_files_size += dir_symlink_info['size_bytes']
+                        hidden_file_types_count[dir_symlink_info['type']] += 1
+                        hidden_file_types_size[dir_symlink_info['type']] += dir_symlink_info['size_bytes']
+                # else: # Not a symlink, it's a regular directory entry from 'dirs' list.
+                      # No special processing needed here for regular dirs beyond os.walk traversing them.
 
+                processed_dirs_this_iteration.append(dir_name) # If successful
+
+            except PermissionError as e_perm:
+                print(f"\nPermission denied processing directory entry: {dir_path_obj}. Error: {e_perm}. Skipping this entry.", file=sys.stderr)
+                skipped_access_errors += 1
+                continue # Skip to the next dir_name in dirs
+            except OSError as e_os:
+                print(f"\nOSError processing directory entry: {dir_path_obj}. Error: {e_os}. Skipping this entry.", file=sys.stderr)
+                skipped_access_errors += 1
+                continue # Skip to the next dir_name in dirs
+
+        # If you were modifying `dirs` in place for topdown=True traversal pruning,
+        # you would do: `dirs[:] = processed_dirs_this_iteration`
+        # But since we are just reading, it's not strictly necessary here.
 
         # Process file entries
         for name in files:
