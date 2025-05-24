@@ -1,6 +1,7 @@
 # report_generator.py
+import os
 import datetime
-from directory_analyzer import ( # Keep these if needed for symlink summary
+from directory_analyzer import ( # Keep these  needed for symlink summary
     SYMLINK_TYPE_STR, BROKEN_SYMLINK_TYPE_STR,
     SYMLINK_TO_DIR_TYPE_STR, SYMLINK_ERROR_TYPE_STR
 )
@@ -9,7 +10,19 @@ import config
 def generate_report_filename():
     """Generates a filename with a timestamp."""
     now = datetime.datetime.now()
-    return f"file_analysis_report_{now.strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+    report_dir = config.REPORT_OUTPUT_DIRECTORY
+
+    # Ensure the report output directory exists
+    if not os.path.exists(report_dir):
+        try:
+            os.makedirs(report_dir)
+            print(f"Created report directory: {report_dir}")
+        except OSError as e:
+            print(f"Error creating report directory {report_dir}: {e}. Reports will be saved in current directory.")
+            report_dir = "." # Fallback to current directory
+    filename = f"file_analysis_report_{now.strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+
+    return os.path.join(report_dir, filename)
 
 
 def write_summary_report(report_filepath, summary_data, all_files_data, dir_symlinks_data, os_name, include_details):
