@@ -8,6 +8,19 @@ INCLUDE_DETAILED_SYMLINK_LIST = True
 # --- Plot Generation Configuration ---
 PLOT_OUTPUT_DIRECTORY = "Plots"
 
+# How to handle the 'size' of symbolic links in size-based plots (PMF, CDF, Scatter):
+# - 'target': Use the symlink's target file size. WARNING: This can lead to double counting
+#             if the target file is also scanned independently.
+# - 'own_size': Use the symlink's own intrinsic size (path length on Linux, often 0 on Windows).
+#               This treats symlinks as distinct, typically small, files.
+# - 'exclude': Exclude all symbolic links from these size-based plots.
+# Recommended for avoiding double count: 'own_size' or 'exclude'
+SYMLINK_SIZE_HANDLING_FOR_PLOTS = 'exclude'
+
+# For file type bar chart, how many top types to display
+BAR_CHART_TOP_N_TYPES = 20
+
+
 # Number of top hidden file types to display in the "Hidden Items Summary" table.
 TOP_N_HIDDEN_TYPES = 10
 

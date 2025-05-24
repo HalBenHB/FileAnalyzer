@@ -132,4 +132,4 @@ def write_summary_report(report_filepath, summary_data, all_files_data, dir_syml
             f.write("\n--- Symbolic Link Details (Detailed List Omitted by Configuration) ---\n")
 
         f.write("\n--- End of Report ---\n")
-    print(f"\nAnalysis report saved to: {report_filepath}")
+    print(f"Analysis report saved to: {report_filepath}")
